@@ -20,6 +20,7 @@ const resetGame = () => {
     current1.innerHTML = 0;
     score1.innerHTML = 0;
     player1.classList.add('player--active');
+    player2.classList.remove('player--active');
     switcher = true;
     name0.innerHTML = 'Player 1';
     name1.innerHTML = 'Player 2';
@@ -67,7 +68,7 @@ rollDiceBtn.addEventListener('click', () => {
             current1.innerHTML = y;
             if (y + player2score >= 100) {
                 name1.innerHTML = 'Winner !';
-                player2.classList.add('player--winner ');
+                player2.classList.add('player--winner');
                 gameover = true;
                 return;
             }

@@ -48,6 +48,7 @@ rollDiceBtn.addEventListener('click', () => {
             current0.innerHTML = x;
             if (x + player1score >= 100) {
                 name0.innerHTML = 'Winner !';
+                player1.classList.add('player--winner');
                 gameover = true;
                 return;
             }
@@ -66,6 +67,7 @@ rollDiceBtn.addEventListener('click', () => {
             current1.innerHTML = y;
             if (y + player2score >= 100) {
                 name1.innerHTML = 'Winner !';
+                player2.classList.add('player--winner ');
                 gameover = true;
                 return;
             }

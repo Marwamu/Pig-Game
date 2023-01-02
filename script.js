@@ -64,8 +64,12 @@ const resetGame = () => {
     name1.innerHTML = 'Player 2';
     gameover = false;
     inputScore.value = null;
+    diceImg1.style.display = 'none';
+    diceImg2.style.display = 'none';
 }
 rollDiceBtn.addEventListener('click', () => {
+    diceImg1.style.display = 'block';
+    diceImg2.style.display = 'block';
     if (gameover) {
         return
     }
@@ -164,5 +168,7 @@ holdBtn.addEventListener('click', () => {
     presentscore1 = 0;
     pastscore2 = 0;
     presentscore2 = 0;
+    diceImg1.style.display = 'none';
+    diceImg2.style.display = 'none';
 })
 console.log(checkRolls());

@@ -20,6 +20,7 @@ var pastscore1 = 0;
 var presentscore1 = 0;
 var pastscore2 = 0;
 var presentscore2 = 0;
+var finalScore;
 function checkRolls() {
     if (presentscore1 == pastscore1 && pastscore1 == 6 || presentscore1 == pastscore1 && pastscore1 == 6) {
         if (switcher) {
@@ -77,6 +78,7 @@ rollDiceBtn.addEventListener('click', () => {
     diceImg2.src = 'dice-' + number2 + '.png';
     presentscore1 = number1;
     presentscore2 = number2;
+    checkwinner();
     if (checkRolls()) {
         return;
     }
@@ -96,7 +98,7 @@ rollDiceBtn.addEventListener('click', () => {
             x += (number1 + number2);
             console.log(x);
             current0.innerHTML = x;
-            if (x + player1score >= parseInt(inputScore.value)) {
+            if (x + player1score >= parseInt(finalScore)) {
                 name0.innerHTML = 'Winner !';
                 player1.classList.add('player--winner');
                 gameover = true;
@@ -116,7 +118,7 @@ rollDiceBtn.addEventListener('click', () => {
             // if (presentscore != 0)
             y += (number1 + number2);
             current1.innerHTML = y;
-            if (y + player2score >= parseInt(inputScore.value)) {
+            if (y + player2score >= parseInt(finalScore)) {
                 name1.innerHTML = 'Winner !';
                 player2.classList.add('player--winner');
                 gameover = true;
@@ -127,6 +129,14 @@ rollDiceBtn.addEventListener('click', () => {
     // console.log(object);
 
 })
+function checkwinner() {
+    if (inputScore.value) {
+        finalScore = parseInt(inputScore.value);
+    }
+    else {
+        finalScore = 100;
+    }
+}
 newGameBtn.addEventListener('click', resetGame)
 
 

@@ -21,6 +21,11 @@ var presentscore1 = 0;
 var pastscore2 = 0;
 var presentscore2 = 0;
 var finalScore;
+function diceStyle(displayStyle) {
+
+    diceImg1.style.display = displayStyle;
+    diceImg2.style.display = displayStyle;
+}
 function checkRolls() {
     if (presentscore1 == pastscore1 && pastscore1 == 6 || presentscore1 == pastscore1 && pastscore1 == 6) {
         if (switcher) {
@@ -64,12 +69,12 @@ const resetGame = () => {
     name1.innerHTML = 'Player 2';
     gameover = false;
     inputScore.value = null;
-    diceImg1.style.display = 'none';
-    diceImg2.style.display = 'none';
+    diceStyle('none')
 }
 rollDiceBtn.addEventListener('click', () => {
-    diceImg1.style.display = 'block';
-    diceImg2.style.display = 'block';
+    diceStyle('block');
+
+
     if (gameover) {
         return
     }
@@ -168,7 +173,7 @@ holdBtn.addEventListener('click', () => {
     presentscore1 = 0;
     pastscore2 = 0;
     presentscore2 = 0;
-    diceImg1.style.display = 'none';
-    diceImg2.style.display = 'none';
+    diceStyle('none')
 })
 console.log(checkRolls());
+
